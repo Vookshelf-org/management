@@ -30,6 +30,7 @@ const Page: NextPage<Props> = () => {
   return (
     <main className={classnames('container', 'p-6')}>
       <SearchBox
+        placeholder={'header.searchbox-author-placeholder'}
         search={name => {
           const { loading, data } = useQuery(query, { variables: { name } })
           return {
