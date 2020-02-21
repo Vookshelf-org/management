@@ -15,6 +15,8 @@ import '../i18n'
 
 import '../styles/tailwind.css'
 
+import Header from '../components/Header/Header'
+
 function createClient(initialState?: NormalizedCacheObject) {
   return new ApolloClient({
     connectToDevTools: !!process.browser,
@@ -32,6 +34,7 @@ const client = createClient()
 export default ({ Component, pageProps }: AppProps) => (
   <>
     <ApolloProvider client={client}>
+      <Header />
       <Component {...pageProps} />
     </ApolloProvider>
   </>

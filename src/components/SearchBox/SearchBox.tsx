@@ -5,7 +5,8 @@ import { useTranslation } from 'react-i18next'
 
 import Column from './SearchBoxColumn'
 
-type ContainerProps = {
+export type ContainerProps = {
+  className?: string
   placeholder: string
   search: (
     input: string
@@ -14,8 +15,7 @@ type ContainerProps = {
     columns: typeof Column[]
   }
 }
-type Props = {
-  className?: string
+export type Props = {
   viewColumns: boolean
   loading: boolean
   columns: typeof Column[]
@@ -32,45 +32,48 @@ const Component: React.FC<Props> = ({
 }) => {
   const { t } = useTranslation()
   return (
-    <div className={classnames(className, 'flex')}>
-      <div className={classnames('relative')}>
-        <input
-          type="text"
-          className={classnames(
-            'bg-gray-300',
-            'px-4',
-            'py-2',
-            'rounded-md',
-            'outline-none'
-          )}
-          placeholder={t(placeholder)}
-          onChange={handleChange}
-        />
-        {viewColumns && (
-          <ul
-            className={classnames(
-              'absolute',
-              'top-100',
-              'left-0',
-              'min-w-full',
-              'shadow',
-              'rounded-md'
-            )}
-          >
-            {loading ? (
-              <Column>
-                <p>{t('common:searching')}</p>
-              </Column>
-            ) : columns.length === 0 ? (
-              <Column>
-                <p>{t('common:no-result')}</p>
-              </Column>
-            ) : (
-              <>{columns}</>
-            )}
-          </ul>
+    <div className={classnames(className, 'relative')}>
+      <input
+        type="text"
+        className={classnames(
+          'w-full',
+          'bg-gray-300',
+          'border',
+          'focus:bg-white',
+          'focus:border-gray-300',
+          'px-4',
+          'py-2',
+          'rounded-md',
+          'outline-none'
         )}
-      </div>
+        placeholder={t(placeholder)}
+        onChange={handleChange}
+      />
+      {viewColumns && (
+        <ul
+          className={classnames(
+            'absolute',
+            'top-100',
+            'left-0',
+            'min-w-full',
+            'border',
+            'shadow',
+            'rounded-md'
+          )}
+        >
+          {loading ? (
+            <Column>
+              <p>{t('common:searching')}</p>
+            </Column>
+          ) : columns.length === 0 ? (
+            <Column>
+              <p>{t('common:no-result')}</p>
+            </Column>
+          ) : (
+            <>{columns}</>
+          )}
+        </ul>
+      )}
     </div>
   )
 }
