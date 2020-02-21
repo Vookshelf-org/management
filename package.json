@@ -1,0 +1,26 @@
+{
+  "name": "vookshelf-management",
+  "private": true,
+  "author": {
+    "name": "SnO2WMaN",
+    "email": "sno2wman.official@gmail.com"
+  },
+  "scripts": {
+    "dev": "next dev"
+  },
+  "dependencies": {
+    "autoprefixer": "^9.7.4",
+    "classnames": "^2.2.6",
+    "next": "^9.2.2",
+    "postcss-import": "^12.0.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "tailwindcss": "^1.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^13.7.4",
+    "@types/react": "^16.9.21",
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.5"
+  }
+}
