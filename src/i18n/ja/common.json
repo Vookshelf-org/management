@@ -1,4 +1,7 @@
 {
   "searching": "検索中です",
-  "no-result": "結果はありません"
+  "no-result": "結果はありません",
+  "author": "著者",
+  "book": "本",
+  "series": "シリーズ"
 }

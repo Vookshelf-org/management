@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import classnames from 'classnames'
+import styled from 'styled-components'
 
 import { useTranslation } from 'react-i18next'
 
 import Column from './SearchBoxColumn'
+import ColumnsBox from './SearchBoxColumnsBox'
 
 export type ContainerProps = {
   className?: string
@@ -12,13 +14,13 @@ export type ContainerProps = {
     input: string
   ) => {
     loading: boolean
-    columns: typeof Column[]
+    columns: Props['columns']
   }
 }
 export type Props = {
   viewColumns: boolean
   loading: boolean
-  columns: typeof Column[]
+  columns: JSX.Element[]
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
 } & ContainerProps
 
@@ -78,13 +80,19 @@ const Component: React.FC<Props> = ({
   )
 }
 
+const StyledComponent: typeof Component = styled(Component)`
+  > input:not(:focus) + ul:not(:active) {
+    visibility: hidden;
+  }
+`
+
 const SearchBox: React.FC<ContainerProps> = props => {
   const [input, setInput] = useState('')
 
   const { loading, columns } = props.search(input)
 
   return (
-    <Component
+    <StyledComponent
       {...props}
       loading={loading}
       columns={columns}

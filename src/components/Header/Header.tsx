@@ -4,10 +4,13 @@ import classnames from 'classnames'
 import { useQuery } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
 
+import { useTranslation } from 'react-i18next'
+
 import SearchBox, {
   ContainerProps as SearchBoxContainerProps,
 } from '../SearchBox/SearchBox'
 import SearchBoxColumn from '../SearchBox/SearchBoxColumn'
+import SearchBoxColumnsBox from '../SearchBox/SearchBoxColumnsBox'
 
 export type ContainerProps = {
   className?: string
@@ -22,8 +25,8 @@ const Component: React.FC<Props> = ({ className, search }) => (
   >
     <div className={classnames('container', 'mx-auto')}>
       <SearchBox
-        className={classnames('w-1/4')}
-        placeholder={'header.searchbox-author-placeholder'}
+        className={classnames('w-1/3')}
+        placeholder={'header.searchbox-placeholder'}
         search={search}
       />
     </div>
@@ -31,31 +34,91 @@ const Component: React.FC<Props> = ({ className, search }) => (
 )
 
 const query = gql`
-  query($name: String!) {
-    findByName(name: $name) {
+  query($input: String!) {
+    searchAuthors(name: $input) {
       id
       name
-      books {
+    }
+    searchBooks(title: $input) {
+      id
+      title
+      authors {
         id
-        title
+        name
       }
+    }
+    searchSeries(title: $input) {
+      id
+      title
     }
   }
 `
 
 const Header: React.FC<ContainerProps> = props => {
-  const authorSearch: Props['search'] = name => {
-    const { loading, data } = useQuery(query, { variables: { name } })
+  const { t } = useTranslation()
+  const search: Props['search'] = input => {
+    const { loading, data } = useQuery(query, { variables: { input } })
     return {
       loading,
-      columns: data?.findByName.map(({ id, name }) => (
-        <SearchBoxColumn key={id} href={`/author/${id}`}>
-          <p>{name}</p>
-        </SearchBoxColumn>
-      )),
+      columns:
+        data?.searchAuthors.length === 0 &&
+        data?.searchBooks.length === 0 &&
+        data?.searchSeries.length === 0
+          ? []
+          : [
+              <SearchBoxColumnsBox
+                key="author"
+                columns={
+                  data?.searchAuthors.map(({ id, name }) => (
+                    <SearchBoxColumn
+                      key={id}
+                      link={{ href: '/author/[id]', as: `/author/${id}` }}
+                    >
+                      <p>{name}</p>
+                    </SearchBoxColumn>
+                  )) || []
+                }
+              >
+                <p>{t('common:author')}</p>
+              </SearchBoxColumnsBox>,
+              <SearchBoxColumnsBox
+                key="books"
+                columns={
+                  data?.searchBooks.map(({ id, title }) => (
+                    <SearchBoxColumn
+                      key={id}
+                      link={{ href: '/book/[id]', as: `/book/${id}` }}
+                    >
+                      <p>{title}</p>
+                    </SearchBoxColumn>
+                  )) || []
+                }
+              >
+                <p>{t('common:book')}</p>
+              </SearchBoxColumnsBox>,
+              <SearchBoxColumnsBox
+                key="series"
+                columns={
+                  data?.searchSeries.map(({ id, title }) => (
+                    <SearchBoxColumn
+                      key={id}
+                      link={{ href: '/series/[id]', as: `/series/${id}` }}
+                    >
+                      <p>{title}</p>
+                    </SearchBoxColumn>
+                  )) || [
+                    <SearchBoxColumn key={'series-no-result'}>
+                      <p>{t('common:no-result')}</p>
+                    </SearchBoxColumn>,
+                  ]
+                }
+              >
+                <p>{t('common:series')}</p>
+              </SearchBoxColumnsBox>,
+            ],
     }
   }
-  return <Component {...props} search={authorSearch} />
+  return <Component {...props} search={search} />
 }
 
 export default Header
