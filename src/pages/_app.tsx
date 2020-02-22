@@ -2,7 +2,7 @@ import React from 'react'
 
 import { AppProps } from 'next/app'
 
-import fetch from 'node-fetch'
+import fetch from 'isomorphic-fetch'
 import {
   ApolloClient,
   HttpLink,
