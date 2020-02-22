@@ -2,6 +2,10 @@
   "searching": "検索中です",
   "no-result": "結果はありません",
   "author": "著者",
+  "authors": "$t(common:author)",
   "book": "本",
-  "series": "シリーズ"
+  "series": "シリーズ",
+  "volume": "巻",
+  "title": "タイトル",
+  "etc": "ほか"
 }
