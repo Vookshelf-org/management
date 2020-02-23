@@ -6,10 +6,10 @@ import { useQuery } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
 import { useTranslation } from 'react-i18next'
 
-import { getAuthor } from '../../queries/authors'
-import * as QueryType from '../../types/queries'
+import { getAuthor } from '~/queries/authors'
+import * as QueryType from '~/types/queries'
 
-import BooksListTable from '../../components/BooksList/Table/Table'
+import BooksListTable from '~/components/BooksList/Table/Table'
 
 import classnames from 'classnames'
 import { useMemo } from 'react'

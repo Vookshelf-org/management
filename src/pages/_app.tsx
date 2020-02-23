@@ -11,11 +11,11 @@ import {
 } from 'apollo-boost'
 import { ApolloProvider } from '@apollo/react-hooks'
 
-import '../i18n'
+import '~/i18n'
 
-import '../styles/tailwind.css'
+import '~/styles/tailwind.css'
 
-import Header from '../components/Header/Header'
+import Header from '~/components/Header/Header'
 
 function createClient(initialState?: NormalizedCacheObject) {
   return new ApolloClient({

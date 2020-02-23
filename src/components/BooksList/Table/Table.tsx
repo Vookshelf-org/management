@@ -6,7 +6,7 @@ import Link, { LinkProps } from 'next/link'
 import { useTranslation } from 'react-i18next'
 
 import ColumnLink from './ColumnLink'
-import * as QueryTypes from '../../../types/queries'
+import * as QueryTypes from '~/types/queries'
 
 import TableData from './TableData'
 import AuthorsTableData from './Authors'

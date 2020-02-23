@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 import TableData from './TableData'
 
-import * as QueryTypes from '../../../types/queries'
+import * as QueryTypes from '~/types/queries'
 import ColumnLink from './ColumnLink'
 
 import AuthorsBalloon from './AuthorsBalloon'

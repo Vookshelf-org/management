@@ -8,9 +8,9 @@ import { useTranslation } from 'react-i18next'
 
 import SearchBox, {
   ContainerProps as SearchBoxContainerProps,
-} from '../SearchBox/SearchBox'
-import SearchBoxColumn from '../SearchBox/SearchBoxColumn'
-import SearchBoxColumnsBox from '../SearchBox/SearchBoxColumnsBox'
+} from '~/components/SearchBox/SearchBox'
+import SearchBoxColumn from '~/components/SearchBox/SearchBoxColumn'
+import SearchBoxColumnsBox from '~/components/SearchBox/SearchBoxColumnsBox'
 
 export type ContainerProps = {
   className?: string
