@@ -1,11 +1,16 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import classnames from 'classnames'
+import styled from 'styled-components'
 
 import Link from 'next/link'
 
 import TableData from './TableData'
 
 import * as QueryTypes from '../../../types/queries'
+import ColumnLink from './ColumnLink'
+
+import AuthorsBalloon from './AuthorsBalloon'
+
 import { useTranslation } from 'react-i18next'
 
 export type ContainerProps = {
@@ -23,34 +28,44 @@ export const Component: React.FC<Props> = ({
   const { t } = useTranslation()
   return (
     <TableData className={classnames(className)}>
-      <p className={classnames({ '-mr-1': authors.length <= limit })}>
-        {authors.slice(0, limit).map(({ id, name }) => (
-          <Link key={id} href="/author/[id]" as={`/author/${id}`}>
-            <a
-              className={classnames(
-                'py-1',
-                'px-2',
-                'mr-1',
-                'hover:bg-blue-200',
-                'whitespace-no-wrap',
-                'rounded'
-              )}
-            >
-              {name}
-            </a>
-          </Link>
-        ))}
-        {authors.length > limit && (
+      {authors.slice(0, limit).map(({ id, name }) => (
+        <ColumnLink
+          key={id}
+          className={classnames('whitespace-no-wrap', 'mr-1')}
+          link={{ href: '/author/[id]', as: `/author/${id}` }}
+        >
+          {name}
+        </ColumnLink>
+      ))}
+      {authors.length > limit && (
+        <span
+          className={classnames('etc', 'relative', 'p-1', 'cursor-pointer')}
+        >
           <span className={classnames('text-blue-500', 'text-sm')}>
             {t('common:etc')}
           </span>
-        )}
-      </p>
+          <AuthorsBalloon
+            className={classnames(
+              'etc-balloon',
+              'absolute',
+              'left-0',
+              'top-100'
+            )}
+            authors={authors.slice(limit)}
+          />
+        </span>
+      )}
     </TableData>
   )
 }
 
+const StyledComponent: typeof Component = styled(Component)`
+  .etc:not(:hover) .etc-balloon:not(:hover) {
+    visibility: hidden;
+  }
+`
+
 const Container: React.FC<ContainerProps> = props => {
-  return <Component {...props} />
+  return <StyledComponent {...props} />
 }
 export default Container

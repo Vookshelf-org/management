@@ -2,9 +2,10 @@ import React, { useState, useEffect, useMemo } from 'react'
 import classnames from 'classnames'
 import styled from 'styled-components'
 
-import Link from 'next/link'
+import Link, { LinkProps } from 'next/link'
 import { useTranslation } from 'react-i18next'
 
+import ColumnLink from './ColumnLink'
 import * as QueryTypes from '../../../types/queries'
 
 import TableData from './TableData'
@@ -21,14 +22,6 @@ interface Data {
   authors: Pick<QueryTypes.Author, 'id' | 'name'>[]
   series?: Pick<QueryTypes.Series, 'id' | 'title'>
 }
-
-export const LongSentence: React.FC<{ className?: string }> = ({
-  className,
-}) => (
-  <>
-    <p className={classnames(className)}></p>
-  </>
-)
 
 export const Component: React.FC<Props> = ({ className, data }) => {
   const { t } = useTranslation()
@@ -65,36 +58,18 @@ export const Component: React.FC<Props> = ({ className, data }) => {
             className={classnames(i % 2 === 0 ? 'bg-gray-100' : 'bg-gray-200')}
           >
             <TableData className={classnames('text-left')}>
-              <Link href="/book/[id]" as={`/book/${book.id}`}>
-                <a
-                  className={classnames(
-                    'py-1',
-                    'px-2',
-                    'hover:bg-blue-200',
-                    'whitespace-no-wrap',
-                    'rounded'
-                  )}
-                >
-                  {book.title}
-                </a>
-              </Link>
+              <ColumnLink link={{ href: '/book/[id]', as: `/book/${book.id}` }}>
+                {book.title}
+              </ColumnLink>
             </TableData>
             <AuthorsTableData authors={authors} />
             <TableData className={classnames('text-left')}>
               {series?.title && (
-                <Link href="/series/[id]" as={`/series/${series.id}`}>
-                  <a
-                    className={classnames(
-                      'py-1',
-                      'px-2',
-                      'hover:bg-blue-200',
-                      'whitespace-no-wrap',
-                      'rounded'
-                    )}
-                  >
-                    {series.title}
-                  </a>
-                </Link>
+                <ColumnLink
+                  link={{ href: '/series/[id]', as: `/series/${book.id}` }}
+                >
+                  {series.title}
+                </ColumnLink>
               )}
             </TableData>
             <TableData className={classnames('text-center')}>
