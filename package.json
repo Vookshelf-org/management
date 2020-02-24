@@ -38,6 +38,7 @@
     "tailwindcss": "^1.2.0"
   },
   "devDependencies": {
+    "@arkweid/lefthook": "^0.7.1",
     "@babel/core": "^7.8.4",
     "@graphql-codegen/cli": "^1.12.2",
     "@graphql-codegen/typescript": "^1.12.2",
