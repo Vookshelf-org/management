@@ -14,7 +14,9 @@
     "lint:prettier": "prettier --check **/*.{js,jsx,ts,tsx,json,yml,html,md,mdx,css,scss,sass}",
     "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:tsc": "tsc --noEmit",
-    "lintfix:eslint": "npm run lint:eslint -- --fix"
+    "lintfix:eslint": "npm run lint:eslint -- --fix",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.3",

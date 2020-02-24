@@ -62,6 +62,12 @@
       "rules": {
         "react/prop-types": 0
       }
+    },
+    {
+      "files": ["next.config.js", ".storybook/**/*.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": 0
+      }
     }
   ]
 }
