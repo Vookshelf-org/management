@@ -7,7 +7,14 @@
   },
   "scripts": {
     "dev": "next dev",
-    "codegen": "graphql-codegen --watch"
+    "codegen": "graphql-codegen --watch",
+    "fmt": "npm run lint:prettier -- --write",
+    "lint": "run-s -cnsl lint:*",
+    "lintfix": "run-s -cnsl lintfix:*",
+    "lint:prettier": "prettier --check **/*.{js,jsx,ts,tsx,json,yml,html,md,mdx,css,scss,sass}",
+    "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:tsc": "tsc --noEmit",
+    "lintfix:eslint": "npm run lint:eslint -- --fix"
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.3",
