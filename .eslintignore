@@ -1,0 +1,13 @@
+# dependencies
+node_modules/
+
+# config
+next.config.js
+
+# output
+.next/
+out/
+
+# misc
+src/types/queries.ts
+next-env.d.ts
