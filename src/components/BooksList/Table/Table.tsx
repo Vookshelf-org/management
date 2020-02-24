@@ -1,15 +1,12 @@
-import React, { useState, useEffect, useMemo } from 'react'
 import classnames from 'classnames'
-import styled from 'styled-components'
-
-import Link, { LinkProps } from 'next/link'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 
-import ColumnLink from './ColumnLink'
-import * as QueryTypes from '~/types/queries'
-
-import TableData from './TableData'
 import AuthorsTableData from './Authors'
+import ColumnLink from './ColumnLink'
+import TableData from './TableData'
+
+import * as QueryTypes from '~/types/queries'
 
 export type ContainerProps = {
   className?: string
@@ -17,7 +14,7 @@ export type ContainerProps = {
 }
 export type Props = {} & ContainerProps
 
-interface Data {
+export interface Data {
   book: Pick<QueryTypes.Book, 'id' | 'title' | 'volume'>
   authors: Pick<QueryTypes.Author, 'id' | 'name'>[]
   series?: Pick<QueryTypes.Series, 'id' | 'title'>

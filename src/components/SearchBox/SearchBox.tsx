@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react'
 import classnames from 'classnames'
+import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 
-import { useTranslation } from 'react-i18next'
-
 import Column from './SearchBoxColumn'
-import ColumnsBox from './SearchBoxColumnsBox'
 
 export type ContainerProps = {
   className?: string
@@ -63,17 +61,17 @@ const Component: React.FC<Props> = ({
             'rounded-md'
           )}
         >
-          {loading ? (
+          {loading && (
             <Column>
               <p>{t('common:searching')}</p>
             </Column>
-          ) : columns.length === 0 ? (
+          )}
+          {!loading && columns.length === 0 && (
             <Column>
               <p>{t('common:no-result')}</p>
             </Column>
-          ) : (
-            <>{columns}</>
           )}
+          <>{columns}</>
         </ul>
       )}
     </div>

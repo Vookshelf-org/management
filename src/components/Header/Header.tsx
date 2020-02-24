@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
-import classnames from 'classnames'
-
 import { useQuery } from '@apollo/react-hooks'
+import classnames from 'classnames'
 import gql from 'graphql-tag'
-
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 
 import SearchBox, {

@@ -1,19 +1,16 @@
-import React from 'react'
+import '~/i18n'
+import '~/styles/tailwind.css'
 
-import { AppProps } from 'next/app'
-
-import fetch from 'isomorphic-fetch'
+import { ApolloProvider } from '@apollo/react-hooks'
 import {
   ApolloClient,
   HttpLink,
   InMemoryCache,
   NormalizedCacheObject,
 } from 'apollo-boost'
-import { ApolloProvider } from '@apollo/react-hooks'
-
-import '~/i18n'
-
-import '~/styles/tailwind.css'
+import fetch from 'isomorphic-fetch'
+import { AppProps } from 'next/app'
+import React from 'react'
 
 import Header from '~/components/Header/Header'
 
@@ -31,7 +28,7 @@ function createClient(initialState?: NormalizedCacheObject) {
 
 const client = createClient()
 
-export default ({ Component, pageProps }: AppProps) => (
+const App = ({ Component, pageProps }: AppProps) => (
   <>
     <ApolloProvider client={client}>
       <Header />
@@ -39,3 +36,5 @@ export default ({ Component, pageProps }: AppProps) => (
     </ApolloProvider>
   </>
 )
+
+export default App

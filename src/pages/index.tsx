@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import classnames from 'classnames'
+import React from 'react'
 
 interface Props {
   className?: string

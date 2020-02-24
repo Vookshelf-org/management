@@ -1,21 +1,16 @@
-import React, { useState, useEffect, useMemo } from 'react'
 import classnames from 'classnames'
+import React from 'react'
+import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 
-import Link from 'next/link'
-
-import TableData from './TableData'
-
-import * as QueryTypes from '~/types/queries'
-import ColumnLink from './ColumnLink'
-
 import AuthorsBalloon from './AuthorsBalloon'
-
-import { useTranslation } from 'react-i18next'
+import ColumnLink from './ColumnLink'
+import { Data } from './Table'
+import TableData from './TableData'
 
 export type ContainerProps = {
   className?: string
-  authors: Pick<QueryTypes.Author, 'id' | 'name'>[]
+  authors: Data['authors']
   limit?: number
 }
 export type Props = {} & ContainerProps

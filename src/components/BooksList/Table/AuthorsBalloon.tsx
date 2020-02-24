@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useMemo } from 'react'
 import classnames from 'classnames'
+import React from 'react'
 
-import ColumnLink from './ColumnLink'
 import * as Authors from './Authors'
+import ColumnLink from './ColumnLink'
 
 export type ContainerProps = {
   className?: string
@@ -10,11 +10,7 @@ export type ContainerProps = {
 }
 export type Props = {} & ContainerProps
 
-export const Component: React.FC<Props> = ({
-  className,
-  children,
-  authors,
-}) => {
+export const Component: React.FC<Props> = ({ className, authors }) => {
   return (
     <div
       className={classnames(

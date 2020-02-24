@@ -1,28 +1,20 @@
+import { useQuery } from '@apollo/react-hooks'
+import classnames from 'classnames'
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
+import React, { useMemo } from 'react'
 
-import { useQuery } from '@apollo/react-hooks'
-import gql from 'graphql-tag'
-import { useTranslation } from 'react-i18next'
-
+import BooksListTable from '~/components/BooksList/Table/Table'
 import { getAuthor } from '~/queries/authors'
 import * as QueryType from '~/types/queries'
 
-import BooksListTable from '~/components/BooksList/Table/Table'
+export type Props = {}
 
-import classnames from 'classnames'
-import { useMemo } from 'react'
-
-interface Props {}
-
-const Page: NextPage<Props> = props => {
+const Page: NextPage<Props> = () => {
   const router = useRouter()
   const { id } = router.query
 
-  const { t } = useTranslation()
-
-  const { loading, data } = useQuery<
+  const { data } = useQuery<
     QueryType.GetAuthorQuery,
     QueryType.GetAuthorQueryVariables
   >(getAuthor, {
