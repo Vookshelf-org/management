@@ -1,6 +1,16 @@
+# dependencies
 node_modules/
+
+# output
 .next/
 out/
 storybook-static/
 
+# log
 *.log
+
+# env
+*.env*
+
+# misc
+src/types/

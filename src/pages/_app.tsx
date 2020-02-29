@@ -7,14 +7,20 @@ import {
   HttpLink,
   InMemoryCache,
   NormalizedCacheObject,
+  IntrospectionFragmentMatcher,
 } from 'apollo-boost'
 import fetch from 'isomorphic-fetch'
 import { AppProps } from 'next/app'
 import React from 'react'
 
 import Header from '~/components/Header/Header'
+import introspectionQueryResultData from '~/types/fragment.json'
 
 function createClient(initialState?: NormalizedCacheObject) {
+  const fragmentMatcher = new IntrospectionFragmentMatcher({
+    introspectionQueryResultData,
+  })
+
   return new ApolloClient({
     connectToDevTools: !!process.browser,
     link: new HttpLink({
@@ -22,7 +28,7 @@ function createClient(initialState?: NormalizedCacheObject) {
       credentials: 'same-origin',
       fetch,
     }),
-    cache: new InMemoryCache().restore(initialState || {}),
+    cache: new InMemoryCache({ fragmentMatcher }).restore(initialState || {}),
   })
 }
 
