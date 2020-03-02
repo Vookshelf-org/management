@@ -1,20 +1,23 @@
 import gql from 'graphql-tag'
 
 export const getAuthor = gql`
-  query getAuthor($id: Float!) {
+  query getAuthor($id: ID!) {
     author(id: $id) {
       name
-      books {
-        id
-        title
-        volume
-        authors {
-          id
-          name
-        }
-        series {
+      aliases {
+        name
+      }
+      bookConnections {
+        roles
+        book {
           id
           title
+          primaryEdition {
+            id
+            isbn
+            title
+            coverUrl
+          }
         }
       }
     }
