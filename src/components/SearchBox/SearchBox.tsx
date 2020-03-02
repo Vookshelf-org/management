@@ -25,7 +25,6 @@ export type Props = {
 const Component: React.FC<Props> = ({
   className,
   handleChange,
-  loading,
   viewColumns,
   columns,
   placeholder,
@@ -61,12 +60,7 @@ const Component: React.FC<Props> = ({
             'rounded-md'
           )}
         >
-          {loading && (
-            <Column>
-              <p>{t('common:searching')}</p>
-            </Column>
-          )}
-          {!loading && columns.length === 0 && (
+          {columns.length === 0 && (
             <Column>
               <p>{t('common:no-result')}</p>
             </Column>
