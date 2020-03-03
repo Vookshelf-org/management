@@ -19,9 +19,24 @@ export type Props = {
 
 const Component: React.FC<Props> = ({ className, search }) => (
   <header
-    className={classnames(className, 'w-full', 'sticky', 'py-4', 'shadow')}
+    className={classnames(
+      className,
+      'w-full',
+      'sticky',
+      'h-16',
+      'shadow',
+      'z-50'
+    )}
   >
-    <div className={classnames('container', 'mx-auto')}>
+    <div
+      className={classnames(
+        'container',
+        'mx-auto',
+        'h-full',
+        'flex',
+        'items-center'
+      )}
+    >
       <SearchBox
         className={classnames('w-1/3')}
         placeholder={'header.searchbox-placeholder'}
