@@ -34,6 +34,8 @@
     "prettier/prettier": 2,
     // typescript
     "@typescript-eslint/explicit-function-return-type": 0,
+    // react
+    "react/self-closing-comp": [2],
     // import
     "import/no-cycle": [1],
     "import/order": [
