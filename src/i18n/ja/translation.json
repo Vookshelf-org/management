@@ -1,4 +1,11 @@
 {
+  "title": {
+    "index": "Vookshelf",
+    "author": "{{name}} - 作者ページ | Vookshelf",
+    "book": "{{title}} - 本 | Vookshelf",
+    "series": "{{title}} - シリーズ | Vookshelf",
+    "loading": "⌛ Loading"
+  },
   "header": {
     "searchbox-placeholder": "本,作者,シリーズを探す"
   }
