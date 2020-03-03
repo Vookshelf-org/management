@@ -6,7 +6,16 @@
   "book": "本",
   "series": "シリーズ",
   "volume": "巻",
+  "volume_series": "第{{volume}}巻",
   "title": "タイトル",
   "etc": "ほか",
-  "alias": "別名義"
+  "alias": "別名義",
+  "roles": {
+    "AUTHOR": "著者",
+    "EDITOR": "編集者",
+    "TRANSLATOR": "訳者",
+    "ORIGINAL": "原作",
+    "ILLUSTRATE": "作画",
+    "COVERART": "表紙絵"
+  }
 }
