@@ -31,7 +31,7 @@ const Page: NextPage<Props> = ({ className }) => {
         </title>
       </Head>
       <main className={classnames(className)}>
-        <div className={classnames('container', 'mx-auto', 'py-6')}>
+        <div className={classnames('container', 'mx-auto')}>
           <h1
             className={classnames(
               'text-4xl',
@@ -42,29 +42,31 @@ const Page: NextPage<Props> = ({ className }) => {
           >
             {data?.author.name}
           </h1>
-          <div
-            className={classnames(
-              'container',
-              'mx-auto',
-              'mb-4',
-              'flex',
-              'items-center'
-            )}
-          >
-            <span className={classnames('mr-2', 'text-gray-600')}>
-              {t('common:alias')}
-            </span>
-            <p className={classnames('text-gray-600')}>
-              {data?.author.aliases.map(({ name }, i, { length }) => (
-                <span key={i}>
-                  <span className={classnames('text-lg', 'text-black')}>
-                    {name}
+          {data?.author.aliases.length > 0 && (
+            <div
+              className={classnames(
+                'container',
+                'mx-auto',
+                'mb-4',
+                'flex',
+                'items-center'
+              )}
+            >
+              <span className={classnames('mr-2', 'text-gray-600')}>
+                {t('common:alias')}
+              </span>
+              <p className={classnames('text-gray-600')}>
+                {data?.author.aliases.map(({ name }, i, { length }) => (
+                  <span key={i}>
+                    <span className={classnames('text-lg', 'text-black')}>
+                      {name}
+                    </span>
+                    {i === length && ','}
                   </span>
-                  {i === length && ','}
-                </span>
-              ))}
-            </p>
-          </div>
+                ))}
+              </p>
+            </div>
+          )}
           <div
             className={classnames(
               'grid',
