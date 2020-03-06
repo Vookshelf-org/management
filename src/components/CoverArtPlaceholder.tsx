@@ -37,7 +37,7 @@ export const Component: React.FC<Props> = ({
   placeholderSize = 'A5',
   placeholderIcon = '2x',
 }) => (
-  <div className={classnames(className, 'relative')}>
+  <div className={classnames(className, 'relative', 'flex')}>
     <img
       src={hasCoverArt ? src : placeholder(placeholderSize)}
       className={classnames(

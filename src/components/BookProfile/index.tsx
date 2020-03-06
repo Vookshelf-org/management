@@ -26,8 +26,7 @@ export const Component: React.FC<Props> = ({ className, book }) => {
     <div className={classnames(className, 'container', 'mx-auto', 'flex')}>
       <CoverArtPlaceHolder
         src={book.primaryEdition?.coverUrl}
-        className={classnames('mr-8')}
-        placeholderClassName={classnames('w-64')}
+        className={classnames('mr-8', 'max-w-xs')}
       />
       <div className={classnames('flex-grow')}>
         <h1
