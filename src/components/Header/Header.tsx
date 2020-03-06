@@ -22,9 +22,11 @@ const Component: React.FC<Props> = ({ className, search }) => (
     className={classnames(
       className,
       'w-full',
+      'top-0',
       'sticky',
       'h-16',
       'shadow',
+      'bg-white',
       'z-50'
     )}
   >

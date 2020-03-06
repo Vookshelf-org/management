@@ -41,12 +41,12 @@ const App = ({
   pageProps,
   className,
 }: AppProps & { className?: string }) => (
-  <div className={classnames(className, 'overflow-y-scroll')}>
+  <div className={classnames(className)}>
     <ApolloProvider client={client}>
       <Header />
       <Component
         {...pageProps}
-        className={classnames('component', 'bg-gray-200')}
+        className={classnames('component', 'bg-gray-100', 'pt-16')}
       />
     </ApolloProvider>
   </div>
