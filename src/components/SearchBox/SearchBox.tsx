@@ -54,6 +54,8 @@ const Component: React.FC<Props> = ({
             'absolute',
             'top-100',
             'left-0',
+            'py-4',
+            'bg-white',
             'min-w-full',
             'border',
             'shadow',
