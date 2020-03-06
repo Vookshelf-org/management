@@ -31,6 +31,7 @@ const placeholder = (size: ContainerProps['placeholderSize']) => {
 
 export const Component: React.FC<Props> = ({
   className,
+  children,
   placeholderClassName,
   src,
   hasCoverArt,
@@ -41,7 +42,6 @@ export const Component: React.FC<Props> = ({
     <img
       src={hasCoverArt ? src : placeholder(placeholderSize)}
       className={classnames(
-        'shadow-lg',
         !hasCoverArt && placeholderClassName,
         'select-none'
       )}
@@ -63,6 +63,7 @@ export const Component: React.FC<Props> = ({
         />
       </div>
     )}
+    {children}
   </div>
 )
 

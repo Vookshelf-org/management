@@ -13,30 +13,25 @@ export type Props = {} & ContainerProps
 
 export const Component: React.FC<Props> = ({ className, book }) => {
   const url = book?.primaryEdition?.coverUrl
-  const hasCover = !!url
   return (
-    <div
-      className={classnames(
-        className,
-        'bg-white',
-        'shadow',
-        'p-2',
-        'rounded',
-        'relative'
-      )}
-    >
-      <Link href={'/book/[id]'} as={`/book/${book.id}`}>
-        <a className={classnames('absolute', 'inset-0', 'z-20')} />
-      </Link>
-      <div className={classnames('container', 'relative', 'overflow-hidden')}>
-        <CoverArt src={url} />
-        {!hasCover && (
-          <div className={classnames('absolute', 'inset-0')}>
-            <p className={classnames('text-black', 'text-sm', 'text-center')}>
-              {book.title}
-            </p>
-          </div>
-        )}
+    <div className={classnames(className)}>
+      <div className={classnames('relative')}>
+        <CoverArt src={url} className={classnames('self-center')}>
+          <Link href={'/book/[id]'} as={`/book/${book.id}`}>
+            <a className={classnames('absolute', 'inset-0', 'z-20')} />
+          </Link>
+        </CoverArt>
+        <p
+          className={classnames(
+            'mt-1',
+            'text-black',
+            'text-xs',
+            'truncate',
+            'select-all'
+          )}
+        >
+          {book.title}
+        </p>
       </div>
     </div>
   )
