@@ -45,7 +45,9 @@ export const Component: React.FC<Props> = ({ className, book }) => {
           connections={book.authorConnections}
           className={classnames('mb-2')}
         />
-        <Series connections={book.seriesConnections} />
+        {book.seriesConnections.length > 0 && (
+          <Series connections={book.seriesConnections} />
+        )}
       </div>
     </div>
   )
