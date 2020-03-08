@@ -8,5 +8,8 @@
   },
   "header": {
     "searchbox-placeholder": "本,作者,シリーズを探す"
+  },
+  "footer": {
+    "copyright": "© Vookshelf 2020"
   }
 }

@@ -15,6 +15,7 @@ import { AppProps } from 'next/app'
 import React from 'react'
 import styled from 'styled-components'
 
+import Footer from '~/components/Footer/Footer'
 import Header from '~/components/Header/Header'
 import introspectionQueryResultData from '~/types/fragment.json'
 
@@ -46,8 +47,9 @@ const App = ({
       <Header />
       <Component
         {...pageProps}
-        className={classnames('component', 'bg-gray-100', 'pt-16')}
+        className={classnames('component', 'bg-gray-100', 'py-16')}
       />
+      <Footer />
     </ApolloProvider>
   </div>
 )
