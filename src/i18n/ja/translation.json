@@ -11,5 +11,10 @@
   },
   "footer": {
     "copyright": "© Vookshelf 2020"
+  },
+  "page": {
+    "author": {
+      "series": "{{author}}が関わったシリーズ"
+    }
   }
 }

@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
+import Series from '~/components/AuthorPage/Series/Series'
 import Book from '~/components/BooksList/Covers/Book'
 import { getAuthor } from '~/queries/authors'
 import * as QueryType from '~/types/queries'
@@ -69,19 +70,33 @@ const Page: NextPage<Props> = ({ className }) => {
           )}
           <div
             className={classnames(
+              'mb-8',
               'grid',
-              'gap-5',
+              'col-gap-4',
+              'row-gap-4',
               'grid-cols-2',
               'sm:grid-cols-3',
               'md:grid-cols-4',
               'lg:grid-cols-6',
-              'xl:grid-cols-7'
+              'xl:grid-cols-8'
             )}
           >
             {data?.author.bookConnections.map(({ book }) => (
               <Book book={book} key={book.id} />
             ))}
           </div>
+          {data?.author.name && (
+            <h2 className={classnames('text-2xl', 'mb-4')}>
+              {t('page.author.series', { author: data?.author.name })}
+            </h2>
+          )}
+          {data?.author.relatedSeries.map((series, i, { length }) => (
+            <Series
+              key={i}
+              series={series}
+              className={classnames({ 'mb-8': i + 1 !== length })}
+            />
+          ))}
         </div>
       </main>
     </>
