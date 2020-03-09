@@ -1,0 +1,42 @@
+{
+  "extends": [
+    ":timezone(Asia/Tokyo)",
+    ":label(renovate)",
+    ":prImmediately",
+    ":prConcurrentLimitNone",
+    ":separateMajorReleases",
+    ":separatePatchReleases",
+    "schedule:daily"
+  ],
+  "commitMessagePrefix": "⬆️",
+  "packageRules": [
+    {
+      "updateTypes": ["pin"],
+      "commitMessagePrefix": "📌"
+    },
+    {
+      "updateTypes": ["rollback"],
+      "commitMessagePrefix": "⬇️"
+    }
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "extends": ["schedule:weekly"],
+    "commitMessagePrefix": "👷"
+  },
+  "npm": {
+    "extends": [
+      "helpers:disableTypesNodeMajor",
+      "group:allApollographql",
+      "group:babelMonorepo",
+      "group:graphqlcodegeneratorMonorepo",
+      "group:fortawesome",
+      "group:reactMonorepo",
+      "group:nextjsMonorepo",
+      "group:postcss",
+      "group:typescript-eslintMonorepo",
+      "group:storybookMonorepo"
+    ],
+    "postUpdateOptions": ["yarnDedupeHighest"]
+  }
+}
