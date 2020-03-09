@@ -15,9 +15,9 @@ import { AppProps } from "next/app"
 import React from "react"
 import styled from "styled-components"
 
+import introspectionQueryResultData from "~/codegen/fragment.json"
 import Footer from "~/components/Footer/Footer"
 import Header from "~/components/Header/Header"
-import introspectionQueryResultData from "~/types/fragment.json"
 
 function createClient(initialState?: NormalizedCacheObject) {
   const fragmentMatcher = new IntrospectionFragmentMatcher({

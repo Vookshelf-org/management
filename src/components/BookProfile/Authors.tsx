@@ -6,7 +6,7 @@ import React from "react"
 import { useTranslation } from "react-i18next"
 import styled from "styled-components"
 
-import * as QueryType from "~/types/queries"
+import * as QueryType from "~/codegen/queries"
 
 export type ContainerProps = {
   className?: string

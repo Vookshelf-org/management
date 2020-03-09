@@ -7,9 +7,9 @@ import React from "react"
 import { useTranslation } from "react-i18next"
 import styled from "styled-components"
 
+import * as QueryType from "~/codegen/queries"
 import BookProfile from "~/components/BookProfile"
 import getBooks from "~/queries/getBook"
-import * as QueryType from "~/types/queries"
 
 interface Props {
   className?: string

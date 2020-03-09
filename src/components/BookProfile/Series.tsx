@@ -3,7 +3,7 @@ import Link from "next/link"
 import React from "react"
 import { useTranslation } from "react-i18next"
 
-import * as QueryType from "~/types/queries"
+import * as QueryType from "~/codegen/queries"
 
 export type ContainerProps = {
   className?: string

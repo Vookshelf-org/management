@@ -15,7 +15,7 @@ const Page: NextPage<Props> = props => {
       <Head>
         <title>{t("title.index")}</title>
       </Head>
-      <main {...props}></main>
+      <main {...props} />
     </>
   )
 }

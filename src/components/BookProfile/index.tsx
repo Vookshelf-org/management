@@ -10,8 +10,8 @@ import Authors from "./Authors"
 import Series from "./Series"
 
 import PlaceholderA5 from "~/assets/placeholders/A5.png"
+import * as QueryType from "~/codegen/queries"
 import CoverArtPlaceHolder from "~/components/CoverArtPlaceholder"
-import * as QueryType from "~/types/queries"
 
 export type ContainerProps = {
   className?: string

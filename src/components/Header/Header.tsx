@@ -4,13 +4,13 @@ import gql from "graphql-tag"
 import React from "react"
 import { useTranslation } from "react-i18next"
 
+import * as QueryType from "~/codegen/queries"
 import SearchBox, {
   ContainerProps as SearchBoxContainerProps,
 } from "~/components/SearchBox/SearchBox"
 import SearchBoxColumn from "~/components/SearchBox/SearchBoxColumn"
 import SearchBoxColumnsBox from "~/components/SearchBox/SearchBoxColumnsBox"
 import querySearchBox from "~/queries/querySearchBox"
-import * as QueryType from "~/types/queries"
 
 export type ContainerProps = {
   className?: string

@@ -6,10 +6,10 @@ import { useRouter } from "next/router"
 import React from "react"
 import { useTranslation } from "react-i18next"
 
+import * as QueryType from "~/codegen/queries"
 import Series from "~/components/AuthorPage/Series/Series"
 import Book from "~/components/BooksList/Covers/Book"
 import getAuthor from "~/queries/getAuthor"
-import * as QueryType from "~/types/queries"
 
 export type Props = { className?: string }
 

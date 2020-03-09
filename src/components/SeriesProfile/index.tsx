@@ -2,8 +2,8 @@ import classnames from "classnames"
 import React from "react"
 import { useTranslation } from "react-i18next"
 
+import * as QueryType from "~/codegen/queries"
 import Book from "~/components/BooksList/Covers/Book"
-import * as QueryType from "~/types/queries"
 
 export type ContainerProps = {
   className?: string

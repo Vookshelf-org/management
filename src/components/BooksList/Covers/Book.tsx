@@ -2,8 +2,8 @@ import classnames from "classnames"
 import Link from "next/link"
 import React from "react"
 
+import * as QueryType from "~/codegen/queries"
 import CoverArt from "~/components/CoverArtPlaceholder"
-import * as QueryType from "~/types/queries"
 
 export type ContainerProps = {
   className?: string
