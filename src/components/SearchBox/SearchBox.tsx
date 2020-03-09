@@ -1,9 +1,9 @@
-import classnames from 'classnames'
-import React, { useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import styled from 'styled-components'
+import classnames from "classnames"
+import React, { useState } from "react"
+import { useTranslation } from "react-i18next"
+import styled from "styled-components"
 
-import Column from './SearchBoxColumn'
+import Column from "./SearchBoxColumn"
 
 export type ContainerProps = {
   className?: string
@@ -12,7 +12,7 @@ export type ContainerProps = {
     input: string
   ) => {
     loading: boolean
-    columns: Props['columns']
+    columns: Props["columns"]
   }
 }
 export type Props = {
@@ -31,19 +31,19 @@ const Component: React.FC<Props> = ({
 }) => {
   const { t } = useTranslation()
   return (
-    <div className={classnames(className, 'relative')}>
+    <div className={classnames(className, "relative")}>
       <input
         type="text"
         className={classnames(
-          'w-full',
-          'bg-gray-300',
-          'border',
-          'focus:bg-white',
-          'focus:border-gray-300',
-          'px-4',
-          'py-2',
-          'rounded-md',
-          'outline-none'
+          "w-full",
+          "bg-gray-300",
+          "border",
+          "focus:bg-white",
+          "focus:border-gray-300",
+          "px-4",
+          "py-2",
+          "rounded-md",
+          "outline-none"
         )}
         placeholder={t(placeholder)}
         onChange={handleChange}
@@ -51,20 +51,20 @@ const Component: React.FC<Props> = ({
       {viewColumns && (
         <ul
           className={classnames(
-            'absolute',
-            'top-100',
-            'left-0',
-            'py-4',
-            'bg-white',
-            'min-w-full',
-            'border',
-            'shadow',
-            'rounded-md'
+            "absolute",
+            "top-100",
+            "left-0",
+            "py-4",
+            "bg-white",
+            "min-w-full",
+            "border",
+            "shadow",
+            "rounded-md"
           )}
         >
           {columns.length === 0 && (
             <Column>
-              <p>{t('common:no-result')}</p>
+              <p>{t("common:no-result")}</p>
             </Column>
           )}
           <>{columns}</>
@@ -81,7 +81,7 @@ const StyledComponent: typeof Component = styled(Component)`
 `
 
 const SearchBox: React.FC<ContainerProps> = props => {
-  const [input, setInput] = useState('')
+  const [input, setInput] = useState("")
 
   const { loading, columns } = props.search(input)
 

@@ -3,10 +3,10 @@ pre-commit:
   commands:
     eslint:
       root: src/
-      glob: '*.{js,ts,jsx,tsx}'
+      glob: "*.{js,ts,jsx,tsx}"
       run: eslint --fix {staged_files}
     prettier:
-      glob: '*.{js,ts,jsx,tsx,json,yml,yaml,md,html,css,scss,sass}'
+      glob: "*.{js,ts,jsx,tsx,json,yml,yaml,md,html,css,scss,sass}"
       run: prettier --write {staged_files}
 pre-push:
   commands:

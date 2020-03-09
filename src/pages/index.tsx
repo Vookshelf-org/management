@@ -1,7 +1,7 @@
-import { NextPage } from 'next'
-import Head from 'next/head'
-import React from 'react'
-import { useTranslation } from 'react-i18next'
+import { NextPage } from "next"
+import Head from "next/head"
+import React from "react"
+import { useTranslation } from "react-i18next"
 
 interface Props {
   className?: string
@@ -13,7 +13,7 @@ const Page: NextPage<Props> = props => {
   return (
     <>
       <Head>
-        <title>{t('title.index')}</title>
+        <title>{t("title.index")}</title>
       </Head>
       <main {...props}></main>
     </>

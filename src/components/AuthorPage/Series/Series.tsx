@@ -1,15 +1,15 @@
-import classnames from 'classnames'
-import Link from 'next/link'
-import React from 'react'
-import { useTranslation } from 'react-i18next'
+import classnames from "classnames"
+import Link from "next/link"
+import React from "react"
+import { useTranslation } from "react-i18next"
 
-import List from './SeriesList'
+import List from "./SeriesList"
 
-import * as QueryType from '~/types/queries'
+import * as QueryType from "~/types/queries"
 
 export type ContainerProps = {
   className?: string
-  series: QueryType.GetAuthorQuery['author']['relatedSeries'][number]
+  series: QueryType.GetAuthorQuery["author"]["relatedSeries"][number]
 }
 export type Props = {} & ContainerProps
 
@@ -19,7 +19,7 @@ export const Component: React.FC<Props> = ({ className, series }) => {
     <div className={classnames(className)}>
       <Link href="/series/[id]" as={`/series/${series.id}`}>
         <a>
-          <h3 className={classnames('text-xl', 'mb-2', 'select-all')}>
+          <h3 className={classnames("text-xl", "mb-2", "select-all")}>
             {series.title}
           </h3>
         </a>

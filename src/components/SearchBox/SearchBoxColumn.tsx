@@ -1,6 +1,6 @@
-import classnames from 'classnames'
-import Link, { LinkProps } from 'next/link'
-import React from 'react'
+import classnames from "classnames"
+import Link, { LinkProps } from "next/link"
+import React from "react"
 
 export type ContainerProps = {
   className?: string
@@ -12,11 +12,11 @@ const Component: React.FC<Props> = ({ className, children, link }) => (
   <li
     className={classnames(
       className,
-      'px-4',
-      'py-2',
-      'bg-white',
-      'relative',
-      'hover:bg-gray-200'
+      "px-4",
+      "py-2",
+      "bg-white",
+      "relative",
+      "hover:bg-gray-200"
     )}
   >
     {children}
@@ -24,11 +24,11 @@ const Component: React.FC<Props> = ({ className, children, link }) => (
       <Link {...link}>
         <a
           className={classnames(
-            'absolute',
-            'top-0',
-            'left-0',
-            'w-full',
-            'h-full'
+            "absolute",
+            "top-0",
+            "left-0",
+            "w-full",
+            "h-full"
           )}
         />
       </Link>

@@ -1,23 +1,23 @@
-import '~/i18n'
-import '~/styles/tailwind.css'
+import "~/i18n"
+import "~/styles/tailwind.css"
 
-import { ApolloProvider } from '@apollo/react-hooks'
+import { ApolloProvider } from "@apollo/react-hooks"
 import {
   ApolloClient,
   HttpLink,
   InMemoryCache,
   NormalizedCacheObject,
   IntrospectionFragmentMatcher,
-} from 'apollo-boost'
-import classnames from 'classnames'
-import fetch from 'isomorphic-fetch'
-import { AppProps } from 'next/app'
-import React from 'react'
-import styled from 'styled-components'
+} from "apollo-boost"
+import classnames from "classnames"
+import fetch from "isomorphic-fetch"
+import { AppProps } from "next/app"
+import React from "react"
+import styled from "styled-components"
 
-import Footer from '~/components/Footer/Footer'
-import Header from '~/components/Header/Header'
-import introspectionQueryResultData from '~/types/fragment.json'
+import Footer from "~/components/Footer/Footer"
+import Header from "~/components/Header/Header"
+import introspectionQueryResultData from "~/types/fragment.json"
 
 function createClient(initialState?: NormalizedCacheObject) {
   const fragmentMatcher = new IntrospectionFragmentMatcher({
@@ -27,8 +27,8 @@ function createClient(initialState?: NormalizedCacheObject) {
   return new ApolloClient({
     connectToDevTools: !!process.browser,
     link: new HttpLink({
-      uri: 'http://localhost:4000/',
-      credentials: 'same-origin',
+      uri: "http://localhost:4000/",
+      credentials: "same-origin",
       fetch,
     }),
     cache: new InMemoryCache({ fragmentMatcher }).restore(initialState || {}),
@@ -47,7 +47,7 @@ const App = ({
       <Header />
       <Component
         {...pageProps}
-        className={classnames('component', 'bg-gray-100', 'py-16')}
+        className={classnames("component", "bg-gray-100", "py-16")}
       />
       <Footer />
     </ApolloProvider>

@@ -1,15 +1,15 @@
-import { useQuery } from '@apollo/react-hooks'
-import classnames from 'classnames'
-import { NextPage } from 'next'
-import Head from 'next/head'
-import { useRouter } from 'next/router'
-import React from 'react'
-import { useTranslation } from 'react-i18next'
+import { useQuery } from "@apollo/react-hooks"
+import classnames from "classnames"
+import { NextPage } from "next"
+import Head from "next/head"
+import { useRouter } from "next/router"
+import React from "react"
+import { useTranslation } from "react-i18next"
 
-import Series from '~/components/AuthorPage/Series/Series'
-import Book from '~/components/BooksList/Covers/Book'
-import { getAuthor } from '~/queries/authors'
-import * as QueryType from '~/types/queries'
+import Series from "~/components/AuthorPage/Series/Series"
+import Book from "~/components/BooksList/Covers/Book"
+import { getAuthor } from "~/queries/authors"
+import * as QueryType from "~/types/queries"
 
 export type Props = { className?: string }
 
@@ -28,17 +28,17 @@ const Page: NextPage<Props> = ({ className }) => {
     <>
       <Head>
         <title>
-          {t('title.author', { name: data?.author.name || t('title.loading') })}
+          {t("title.author", { name: data?.author.name || t("title.loading") })}
         </title>
       </Head>
       <main className={classnames(className)}>
-        <div className={classnames('container', 'mx-auto')}>
+        <div className={classnames("container", "mx-auto")}>
           <h1
             className={classnames(
-              'text-4xl',
-              'font-bold',
-              'text-black',
-              'mb-4'
+              "text-4xl",
+              "font-bold",
+              "text-black",
+              "mb-4"
             )}
           >
             {data?.author.name}
@@ -46,23 +46,23 @@ const Page: NextPage<Props> = ({ className }) => {
           {data?.author.aliases.length > 0 && (
             <div
               className={classnames(
-                'container',
-                'mx-auto',
-                'mb-4',
-                'flex',
-                'items-center'
+                "container",
+                "mx-auto",
+                "mb-4",
+                "flex",
+                "items-center"
               )}
             >
-              <span className={classnames('mr-2', 'text-gray-600')}>
-                {t('common:alias')}
+              <span className={classnames("mr-2", "text-gray-600")}>
+                {t("common:alias")}
               </span>
-              <p className={classnames('text-gray-600')}>
+              <p className={classnames("text-gray-600")}>
                 {data?.author.aliases.map(({ name }, i, { length }) => (
                   <span key={i}>
-                    <span className={classnames('text-lg', 'text-black')}>
+                    <span className={classnames("text-lg", "text-black")}>
                       {name}
                     </span>
-                    {i === length && ','}
+                    {i === length && ","}
                   </span>
                 ))}
               </p>
@@ -70,15 +70,15 @@ const Page: NextPage<Props> = ({ className }) => {
           )}
           <div
             className={classnames(
-              'mb-8',
-              'grid',
-              'col-gap-4',
-              'row-gap-4',
-              'grid-cols-2',
-              'sm:grid-cols-3',
-              'md:grid-cols-4',
-              'lg:grid-cols-6',
-              'xl:grid-cols-8'
+              "mb-8",
+              "grid",
+              "col-gap-4",
+              "row-gap-4",
+              "grid-cols-2",
+              "sm:grid-cols-3",
+              "md:grid-cols-4",
+              "lg:grid-cols-6",
+              "xl:grid-cols-8"
             )}
           >
             {data?.author.bookConnections.map(({ book }) => (
@@ -86,15 +86,15 @@ const Page: NextPage<Props> = ({ className }) => {
             ))}
           </div>
           {data?.author.name && (
-            <h2 className={classnames('text-2xl', 'mb-4')}>
-              {t('page.author.series', { author: data?.author.name })}
+            <h2 className={classnames("text-2xl", "mb-4")}>
+              {t("page.author.series", { author: data?.author.name })}
             </h2>
           )}
           {data?.author.relatedSeries.map((series, i, { length }) => (
             <Series
               key={i}
               series={series}
-              className={classnames({ 'mb-8': i + 1 !== length })}
+              className={classnames({ "mb-8": i + 1 !== length })}
             />
           ))}
         </div>

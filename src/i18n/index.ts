@@ -1,9 +1,9 @@
-import i18n from 'i18next'
-import i18nextBrowserLanguageDetector from 'i18next-browser-languagedetector'
-import { initReactI18next } from 'react-i18next'
+import i18n from "i18next"
+import i18nextBrowserLanguageDetector from "i18next-browser-languagedetector"
+import { initReactI18next } from "react-i18next"
 
-import en from './en'
-import ja from './ja'
+import en from "./en"
+import ja from "./ja"
 
 const resources = { en, ja }
 
@@ -12,8 +12,8 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    fallbackLng: 'ja',
-    debug: process.env.NODE_ENV === 'development',
+    fallbackLng: "ja",
+    debug: process.env.NODE_ENV === "development",
     interpolation: { escapeValue: false },
   })
 

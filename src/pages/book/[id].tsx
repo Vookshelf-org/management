@@ -1,15 +1,15 @@
-import { useQuery } from '@apollo/react-hooks'
-import classnames from 'classnames'
-import { NextPage } from 'next'
-import Head from 'next/head'
-import { useRouter } from 'next/router'
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import styled from 'styled-components'
+import { useQuery } from "@apollo/react-hooks"
+import classnames from "classnames"
+import { NextPage } from "next"
+import Head from "next/head"
+import { useRouter } from "next/router"
+import React from "react"
+import { useTranslation } from "react-i18next"
+import styled from "styled-components"
 
-import BookProfile from '~/components/BookProfile'
-import { getBook } from '~/queries/books'
-import * as QueryType from '~/types/queries'
+import BookProfile from "~/components/BookProfile"
+import { getBook } from "~/queries/books"
+import * as QueryType from "~/types/queries"
 
 interface Props {
   className?: string
@@ -32,7 +32,7 @@ const Page: NextPage<Props> = ({ className }) => {
     <>
       <Head>
         <title>
-          {t('title.book', { title: data?.book.title || t('title.loading') })}
+          {t("title.book", { title: data?.book.title || t("title.loading") })}
         </title>
       </Head>
       <main className={classnames(className)}>

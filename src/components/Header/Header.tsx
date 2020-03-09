@@ -1,49 +1,49 @@
-import { useQuery } from '@apollo/react-hooks'
-import classnames from 'classnames'
-import gql from 'graphql-tag'
-import React from 'react'
-import { useTranslation } from 'react-i18next'
+import { useQuery } from "@apollo/react-hooks"
+import classnames from "classnames"
+import gql from "graphql-tag"
+import React from "react"
+import { useTranslation } from "react-i18next"
 
 import SearchBox, {
   ContainerProps as SearchBoxContainerProps,
-} from '~/components/SearchBox/SearchBox'
-import SearchBoxColumn from '~/components/SearchBox/SearchBoxColumn'
-import SearchBoxColumnsBox from '~/components/SearchBox/SearchBoxColumnsBox'
-import { search as searchQuery } from '~/queries/searchbox'
-import * as QueryType from '~/types/queries'
+} from "~/components/SearchBox/SearchBox"
+import SearchBoxColumn from "~/components/SearchBox/SearchBoxColumn"
+import SearchBoxColumnsBox from "~/components/SearchBox/SearchBoxColumnsBox"
+import { search as searchQuery } from "~/queries/searchbox"
+import * as QueryType from "~/types/queries"
 
 export type ContainerProps = {
   className?: string
 }
 export type Props = {
-  search: SearchBoxContainerProps['search']
+  search: SearchBoxContainerProps["search"]
 } & ContainerProps
 
 const Component: React.FC<Props> = ({ className, search }) => (
   <header
     className={classnames(
       className,
-      'w-full',
-      'top-0',
-      'sticky',
-      'h-16',
-      'shadow',
-      'bg-white',
-      'z-50'
+      "w-full",
+      "top-0",
+      "sticky",
+      "h-16",
+      "shadow",
+      "bg-white",
+      "z-50"
     )}
   >
     <div
       className={classnames(
-        'container',
-        'mx-auto',
-        'h-full',
-        'flex',
-        'items-center'
+        "container",
+        "mx-auto",
+        "h-full",
+        "flex",
+        "items-center"
       )}
     >
       <SearchBox
-        className={classnames('w-1/3')}
-        placeholder={'header.searchbox-placeholder'}
+        className={classnames("w-1/3")}
+        placeholder={"header.searchbox-placeholder"}
         search={search}
       />
     </div>
@@ -52,7 +52,7 @@ const Component: React.FC<Props> = ({ className, search }) => (
 
 const Header: React.FC<ContainerProps> = props => {
   const { t } = useTranslation()
-  const search: Props['search'] = query => {
+  const search: Props["search"] = query => {
     const { loading, data } = useQuery<
       QueryType.SearchQuery,
       QueryType.SearchQueryVariables
@@ -63,27 +63,27 @@ const Header: React.FC<ContainerProps> = props => {
         key="authors"
         columns={data?.searchAuthors.map(union => {
           // eslint-disable-next-line no-underscore-dangle
-          if (union.__typename === 'Author') {
+          if (union.__typename === "Author") {
             return (
               <SearchBoxColumn
                 key={`author-${union.id}`}
-                link={{ href: '/author/[id]', as: `/author/${union.id}` }}
+                link={{ href: "/author/[id]", as: `/author/${union.id}` }}
               >
-                <p className={classnames('whitespace-no-wrap')}>{union.name}</p>
+                <p className={classnames("whitespace-no-wrap")}>{union.name}</p>
               </SearchBoxColumn>
             )
           }
           return (
             <SearchBoxColumn
               key={`author-alias-${union.author.id}`}
-              link={{ href: '/author/[id]', as: `/author/${union.author.id}` }}
+              link={{ href: "/author/[id]", as: `/author/${union.author.id}` }}
             >
-              <p className={classnames('whitespace-no-wrap')}>{union.name}</p>
+              <p className={classnames("whitespace-no-wrap")}>{union.name}</p>
             </SearchBoxColumn>
           )
         })}
       >
-        <p>{t('common:author')}</p>
+        <p>{t("common:author")}</p>
       </SearchBoxColumnsBox>
     )
     const bookBox = data?.searchBooks.length > 0 && (
@@ -92,13 +92,13 @@ const Header: React.FC<ContainerProps> = props => {
         columns={data?.searchBooks.map(({ id, title }) => (
           <SearchBoxColumn
             key={`book-${id}`}
-            link={{ href: '/book/[id]', as: `/book/${id}` }}
+            link={{ href: "/book/[id]", as: `/book/${id}` }}
           >
-            <p className={classnames('whitespace-no-wrap')}>{title}</p>
+            <p className={classnames("whitespace-no-wrap")}>{title}</p>
           </SearchBoxColumn>
         ))}
       >
-        <p>{t('common:book')}</p>
+        <p>{t("common:book")}</p>
       </SearchBoxColumnsBox>
     )
     const seriesBox = data?.searchSeries.length > 0 && (
@@ -107,13 +107,13 @@ const Header: React.FC<ContainerProps> = props => {
         columns={data?.searchSeries.map(({ id, title }) => (
           <SearchBoxColumn
             key={`series-${id}`}
-            link={{ href: '/series/[id]', as: `/series/${id}` }}
+            link={{ href: "/series/[id]", as: `/series/${id}` }}
           >
-            <p className={classnames('whitespace-no-wrap')}>{title}</p>
+            <p className={classnames("whitespace-no-wrap")}>{title}</p>
           </SearchBoxColumn>
         ))}
       >
-        <p>{t('common:series')}</p>
+        <p>{t("common:series")}</p>
       </SearchBoxColumnsBox>
     )
 

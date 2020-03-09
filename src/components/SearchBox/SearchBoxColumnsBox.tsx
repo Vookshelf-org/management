@@ -1,5 +1,5 @@
-import classnames from 'classnames'
-import React from 'react'
+import classnames from "classnames"
+import React from "react"
 
 export type ContainerProps = {
   className?: string
@@ -13,14 +13,14 @@ const Component: React.FC<Props> = ({ className, children, columns }) => (
       <li
         className={classnames(
           className,
-          'px-4',
-          'relative',
-          'flex',
-          'flex-col'
+          "px-4",
+          "relative",
+          "flex",
+          "flex-col"
         )}
       >
-        <div className={classnames('mb-2')}>{children}</div>
-        <ul className={classnames('flex-grow')}>{columns}</ul>
+        <div className={classnames("mb-2")}>{children}</div>
+        <ul className={classnames("flex-grow")}>{columns}</ul>
       </li>
     )}
   </>
