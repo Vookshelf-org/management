@@ -1,7 +1,7 @@
 import gql from "graphql-tag"
 
-export const search = gql`
-  query search($query: String!, $take: Int) {
+export default gql`
+  query SearchBox($query: String!, $take: Int) {
     searchBooks(query: $query, take: $take) {
       id
       title

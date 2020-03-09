@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next"
 
 import Series from "~/components/AuthorPage/Series/Series"
 import Book from "~/components/BooksList/Covers/Book"
-import { getAuthor } from "~/queries/authors"
+import getAuthor from "~/queries/getAuthor"
 import * as QueryType from "~/types/queries"
 
 export type Props = { className?: string }

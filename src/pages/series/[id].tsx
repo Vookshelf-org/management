@@ -7,7 +7,7 @@ import React from "react"
 import { useTranslation } from "react-i18next"
 
 import Profile from "~/components/SeriesProfile"
-import { getSeries } from "~/queries/series"
+import getSeries from "~/queries/getSeries"
 import * as QueryType from "~/types/queries"
 
 interface Props {

@@ -1,7 +1,7 @@
 import gql from "graphql-tag"
 
-export const getAuthor = gql`
-  query getAuthor($id: ID!) {
+export default gql`
+  query GetAuthor($id: ID!) {
     author(id: $id) {
       name
       aliases {

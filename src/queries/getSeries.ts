@@ -1,7 +1,7 @@
 import gql from "graphql-tag"
 
-export const getSeries = gql`
-  query getSeries($id: ID!) {
+export default gql`
+  query GetSeries($id: ID!) {
     series(id: $id) {
       title
       bookConnections {

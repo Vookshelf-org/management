@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next"
 import styled from "styled-components"
 
 import BookProfile from "~/components/BookProfile"
-import { getBook } from "~/queries/books"
+import getBooks from "~/queries/getBook"
 import * as QueryType from "~/types/queries"
 
 interface Props {
@@ -24,7 +24,7 @@ const Page: NextPage<Props> = ({ className }) => {
   const { loading, data } = useQuery<
     QueryType.GetBookQuery,
     QueryType.GetBookQueryVariables
-  >(getBook, {
+  >(getBooks, {
     variables: { id: String(id) },
   })
 

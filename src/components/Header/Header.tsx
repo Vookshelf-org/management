@@ -9,7 +9,7 @@ import SearchBox, {
 } from "~/components/SearchBox/SearchBox"
 import SearchBoxColumn from "~/components/SearchBox/SearchBoxColumn"
 import SearchBoxColumnsBox from "~/components/SearchBox/SearchBoxColumnsBox"
-import { search as searchQuery } from "~/queries/searchbox"
+import querySearchBox from "~/queries/querySearchBox"
 import * as QueryType from "~/types/queries"
 
 export type ContainerProps = {
@@ -54,9 +54,9 @@ const Header: React.FC<ContainerProps> = props => {
   const { t } = useTranslation()
   const search: Props["search"] = query => {
     const { loading, data } = useQuery<
-      QueryType.SearchQuery,
-      QueryType.SearchQueryVariables
-    >(searchQuery, { variables: { query, take: 4 } })
+      QueryType.SearchBoxQuery,
+      QueryType.SearchBoxQueryVariables
+    >(querySearchBox, { variables: { query, take: 4 } })
 
     const authorsBox = data?.searchAuthors.length > 0 && (
       <SearchBoxColumnsBox
