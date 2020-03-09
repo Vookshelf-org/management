@@ -13,5 +13,5 @@ storybook-static/
 *.env*
 
 # misc
-src/types/
+src/codegen
 next-env.d.ts
