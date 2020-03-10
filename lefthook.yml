@@ -10,8 +10,6 @@ pre-commit:
       run: prettier --write {staged_files}
 pre-push:
   commands:
-    packages-audit:
-      run: yarn audit
     tsc:
       root: src/
       run: tsc --noEmit
