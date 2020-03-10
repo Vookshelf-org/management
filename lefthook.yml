@@ -1,5 +1,4 @@
 pre-commit:
-  parallel: true
   commands:
     eslint:
       root: src/
@@ -10,6 +9,8 @@ pre-commit:
       run: prettier --write {staged_files}
 pre-push:
   commands:
+    pre-commit:
+      run: lefthook run pre-commit
     tsc:
       root: src/
       run: tsc --noEmit
