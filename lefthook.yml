@@ -7,6 +7,8 @@ pre-commit:
     prettier:
       glob: "*.{js,ts,jsx,tsx,json,yml,yaml,md,html,css,scss,sass}"
       run: prettier --write {staged_files}
+    circle-ci:
+      run: circleci config validate
 pre-push:
   commands:
     pre-commit:
