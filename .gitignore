@@ -6,6 +6,9 @@ node_modules/
 out/
 storybook-static/
 
+# circleci
+.circleci/2.0/
+
 # log
 *.log
 
@@ -15,3 +18,4 @@ storybook-static/
 # misc
 src/codegen
 next-env.d.ts
+schema.graphql
