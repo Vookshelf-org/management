@@ -3,18 +3,55 @@ version: 2.1
 orbs:
   node: circleci/node@1.1
 
-jobs:
-  install:
-    executor:
-      name: node/default
-      tag: "12"
+executors:
+  node:
+    working_directory: ~
+    docker:
+      - image: circleci/node:12.14.1
+
+commands:
+  get-schema:
     steps:
-      - checkout
+      - run: curl $SCHEMA_URL -sL -o $SCHEMA_PATH
+  node-install:
+    steps:
       - node/with-cache:
           steps:
             - run: npm ci
+
+jobs:
+  install:
+    executor:
+      name: node
+    steps:
+      - checkout
+      - node-install
+  lint:
+    executor:
+      name: node
+    steps:
+      - checkout
+      - node-install
+      - get-schema
+      - run: npm run prebuild
+      - run: npm run lint:prettier
+      - run: npm run lint:eslint
+  build:
+    executor:
+      name: node
+    steps:
+      - checkout
+      - node-install
+      - get-schema
+      - run: npm run build
 
 workflows:
   main:
     jobs:
       - install
+      - lint:
+          requires:
+            - install
+      - build:
+          requires:
+            - install
