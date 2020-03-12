@@ -33,6 +33,7 @@ jobs:
       - checkout
       - node-install
       - get-schema
+      - run: mkdir reports
       - run: npm run prebuild
       - run:
           command: npm run lint:prettier
@@ -41,13 +42,13 @@ jobs:
           command: npm run lint:tsc
           when: always
       - run:
-          command: npm run -s lint:stylelint -- --custom-formatter node_modules/stylelint-junit-formatter > lint-results/stylelint.xml
+          command: npm run -s lint:stylelint -- --custom-formatter node_modules/stylelint-junit-formatter > reports/stylelint.xml
           when: always
       - run:
-          command: npm run -s lint:eslint  -- --format junit --output-file lint-results/eslint.xml
+          command: npm run -s lint:eslint  -- --format junit --output-file reports/eslint.xml
           when: always
       - store_test_results:
-          path: lint-results
+          path: reports
   build:
     executor:
       name: node
