@@ -4,6 +4,9 @@ pre-commit:
       root: src/
       glob: "*.{js,ts,jsx,tsx}"
       run: eslint --fix {staged_files}
+    stylelint:
+      glob: "*.{css,scss,sass,jsx,tsx}"
+      run: stylelint --fix {staged_files}
     prettier:
       glob: "*.{js,ts,jsx,tsx,json,yml,yaml,md,html,css,scss,sass}"
       run: prettier --write {staged_files}
