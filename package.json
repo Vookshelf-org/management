@@ -6,10 +6,15 @@
     "email": "sno2wman.official@gmail.com"
   },
   "scripts": {
-    "dev": "next dev",
-    "codegen": "graphql-codegen --watch",
+    "dev": "run-p -cnsl dev:*",
+    "dev:next": "next dev",
+    "dev:codegen": "npm run codegen -- --watch",
+    "build": "next build",
+    "prebuild": "run-p prebuild:*",
+    "prebuild:codegen": "npm run codegen",
+    "codegen": "graphql-codegen",
     "fmt": "npm run lint:prettier -- --write",
-    "lint": "run-s -cnsl lint:*",
+    "lint": "run-s -nl lint:*",
     "lintfix": "run-s -cnsl lintfix:*",
     "lint:prettier": "prettier --check **/*.{js,jsx,ts,tsx,json,yml,html,md,mdx,css,scss,sass}",
     "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
