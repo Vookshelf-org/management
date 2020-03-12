@@ -12,7 +12,7 @@ jobs:
       - checkout
       - node/with-cache:
           steps:
-            - run: yarn install
+            - run: npm ci
 
 workflows:
   main:
