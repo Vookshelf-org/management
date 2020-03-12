@@ -1,0 +1,7 @@
+# dependencies
+node_modules/
+
+# output
+.next/
+out/
+storybook-static/
