@@ -17,5 +17,4 @@ storybook-static/
 
 # misc
 src/codegen
-next-env.d.ts
 schema.graphql
