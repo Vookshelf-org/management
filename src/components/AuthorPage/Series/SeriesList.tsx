@@ -33,10 +33,8 @@ export const Component: React.FC<Props> = ({ className, connections }) => {
   )
 }
 
-const StyledComponent: typeof Component = styled(Component)``
-
 export const Container: React.FC<ContainerProps> = props => {
-  return <StyledComponent {...props} />
+  return <Component {...props} />
 }
 
 export default Container
