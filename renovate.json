@@ -8,6 +8,7 @@
     ":separatePatchReleases",
     "schedule:daily"
   ],
+  "baseBranches": ["dev"],
   "commitMessagePrefix": "⬆️",
   "packageRules": [
     {
