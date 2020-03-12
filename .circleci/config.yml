@@ -34,10 +34,18 @@ jobs:
       - node-install
       - get-schema
       - run: npm run prebuild
-      - run: npm run lint:prettier
-      - run: npm run lint:tsc
-      - run: npm run -s lint:stylelint -- --custom-formatter node_modules/stylelint-junit-formatter > lint-results/stylelint.xml
-      - run: npm run -s lint:eslint  -- --format junit --output-file lint-results/eslint.xml
+      - run:
+          command: npm run lint:prettier
+          when: always
+      - run:
+          command: npm run lint:tsc
+          when: always
+      - run:
+          command: npm run -s lint:stylelint -- --custom-formatter node_modules/stylelint-junit-formatter > lint-results/stylelint.xml
+          when: always
+      - run:
+          command: npm run -s lint:eslint  -- --format junit --output-file lint-results/eslint.xml
+          when: always
       - store_test_results:
           path: lint-results
   build:
