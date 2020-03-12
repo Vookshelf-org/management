@@ -16,11 +16,13 @@
     "typescript",
     "typescriptreact"
   ],
+  "stylelint.enable": true,
   "prettier.disableLanguages": [
     "javascript",
     "javascriptreact",
     "typescript",
-    "typescriptreact"
+    "typescriptreact",
+    "css"
   ],
   "[javascript]": {
     "editor.formatOnSave": false
@@ -32,6 +34,9 @@
     "editor.formatOnSave": false
   },
   "[typescriptreact]": {
+    "editor.formatOnSave": false
+  },
+  "[css]": {
     "editor.formatOnSave": false
   }
 }
