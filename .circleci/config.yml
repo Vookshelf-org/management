@@ -35,7 +35,9 @@ jobs:
       - get-schema
       - run: npm run prebuild
       - run: npm run lint:prettier
-      - run: npm run lint:eslint
+      - run: npm run lint:eslint -- --format junit --output-file lint-results/eslint.xml
+      - store_test_results:
+          path: lint-results
   build:
     executor:
       name: node
