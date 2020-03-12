@@ -17,7 +17,7 @@ commands:
     steps:
       - node/with-cache:
           steps:
-            - run: npm ci
+            - run: yarn install --frozen-lockfile
 
 jobs:
   install:
