@@ -18,8 +18,10 @@
     "lintfix": "run-s -cnsl lintfix:*",
     "lint:prettier": "prettier --check **/*.{js,jsx,ts,tsx,json,yml,html,md,mdx,css,scss,sass}",
     "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:stylelint": "stylelint **/*.{css,sass,scss,jsx,tsx}",
     "lint:tsc": "tsc --noEmit",
     "lintfix:eslint": "npm run lint:eslint -- --fix",
+    "lintfix:stylelint": "npm run lint:stylelint -- --fix",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
