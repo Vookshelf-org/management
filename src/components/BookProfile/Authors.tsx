@@ -1,10 +1,7 @@
-import { faImage } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import classnames from "classnames"
 import Link from "next/link"
 import React from "react"
 import { useTranslation } from "react-i18next"
-import styled from "styled-components"
 
 import * as QueryType from "~/codegen/queries"
 

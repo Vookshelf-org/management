@@ -1,7 +1,6 @@
 import classnames from "classnames"
 import React from "react"
 import { useTranslation } from "react-i18next"
-import styled from "styled-components"
 
 import * as QueryType from "~/codegen/queries"
 import Book from "~/components/BooksList/Covers/Book"

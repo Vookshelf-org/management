@@ -1,13 +1,10 @@
-import "~/i18n"
-import "~/styles/tailwind.css"
-
 import { ApolloProvider } from "@apollo/react-hooks"
 import {
   ApolloClient,
   HttpLink,
   InMemoryCache,
-  NormalizedCacheObject,
   IntrospectionFragmentMatcher,
+  NormalizedCacheObject,
 } from "apollo-boost"
 import classnames from "classnames"
 import fetch from "isomorphic-fetch"
@@ -18,6 +15,8 @@ import styled from "styled-components"
 import introspectionQueryResultData from "~/codegen/fragment.json"
 import Footer from "~/components/Footer/Footer"
 import Header from "~/components/Header/Header"
+import "~/i18n"
+import "~/styles/tailwind.css"
 
 function createClient(initialState?: NormalizedCacheObject) {
   const fragmentMatcher = new IntrospectionFragmentMatcher({

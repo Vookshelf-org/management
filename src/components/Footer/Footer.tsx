@@ -1,8 +1,4 @@
-import {
-  faGithub,
-  faTwitter,
-  faSlack,
-} from "@fortawesome/free-brands-svg-icons"
+import { faGithub, faSlack } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import classnames from "classnames"
 import React from "react"
