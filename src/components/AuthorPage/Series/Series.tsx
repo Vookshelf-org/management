@@ -13,21 +13,18 @@ export type ContainerProps = {
 }
 export type Props = {} & ContainerProps
 
-export const Component: React.FC<Props> = ({ className, series }) => {
-  const { t } = useTranslation()
-  return (
-    <div className={classnames(className)}>
-      <Link href="/series/[id]" as={`/series/${series.id}`}>
-        <a>
-          <h3 className={classnames("text-xl", "mb-2", "select-all")}>
-            {series.title}
-          </h3>
-        </a>
-      </Link>
-      <List className={classnames()} connections={series.bookConnections} />
-    </div>
-  )
-}
+export const Component: React.FC<Props> = ({ className, series }) => (
+  <div className={classnames(className)}>
+    <Link href="/series/[id]" as={`/series/${series.id}`}>
+      <a>
+        <h3 className={classnames("text-xl", "mb-2", "select-all")}>
+          {series.title}
+        </h3>
+      </a>
+    </Link>
+    <List className={classnames()} connections={series.bookConnections} />
+  </div>
+)
 
 export const Container: React.FC<ContainerProps> = props => {
   return <Component {...props} />

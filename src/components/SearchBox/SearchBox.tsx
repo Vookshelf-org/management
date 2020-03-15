@@ -7,7 +7,9 @@ import Column from "./SearchBoxColumn"
 
 export type ContainerProps = {
   className?: string
-  placeholder: string
+  i18n: {
+    placeholder: string
+  }
   search: (
     input: string
   ) => {
@@ -20,6 +22,9 @@ export type Props = {
   loading: boolean
   columns: JSX.Element[]
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  i18n: {
+    noResult: string
+  }
 } & ContainerProps
 
 const Component: React.FC<Props> = ({
@@ -27,9 +32,8 @@ const Component: React.FC<Props> = ({
   handleChange,
   viewColumns,
   columns,
-  placeholder,
+  i18n,
 }) => {
-  const { t } = useTranslation()
   return (
     <div className={classnames(className, "relative")}>
       <input
@@ -45,7 +49,7 @@ const Component: React.FC<Props> = ({
           "rounded-md",
           "outline-none"
         )}
-        placeholder={t(placeholder)}
+        placeholder={i18n.placeholder}
         onChange={handleChange}
       />
       {viewColumns && (
@@ -64,7 +68,7 @@ const Component: React.FC<Props> = ({
         >
           {columns.length === 0 && (
             <Column>
-              <p>{t("common:no-result")}</p>
+              <p>{i18n.noResult}</p>
             </Column>
           )}
           <>{columns}</>
@@ -85,6 +89,8 @@ const SearchBox: React.FC<ContainerProps> = props => {
 
   const { loading, columns } = props.search(input)
 
+  const { t } = useTranslation()
+
   return (
     <StyledComponent
       {...props}
@@ -93,6 +99,10 @@ const SearchBox: React.FC<ContainerProps> = props => {
       viewColumns={!!input}
       handleChange={event => {
         setInput(event.target.value)
+      }}
+      i18n={{
+        ...props.i18n,
+        noResult: t("common:no-result"),
       }}
     />
   )

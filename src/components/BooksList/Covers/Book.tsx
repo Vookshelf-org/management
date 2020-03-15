@@ -11,31 +11,31 @@ export type ContainerProps = {
 }
 export type Props = {} & ContainerProps
 
-export const Component: React.FC<Props> = ({ className, book }) => {
-  const url = book?.primaryEdition?.coverUrl
-  return (
-    <div className={classnames(className)}>
-      <div className={classnames("relative")}>
-        <CoverArt src={url} className={classnames("self-center")}>
-          <Link href={"/book/[id]"} as={`/book/${book.id}`}>
-            <a className={classnames("absolute", "inset-0", "z-20")} />
-          </Link>
-        </CoverArt>
-        <p
-          className={classnames(
-            "mt-1",
-            "text-black",
-            "text-xs",
-            "truncate",
-            "select-all"
-          )}
-        >
-          {book.title}
-        </p>
-      </div>
+export const Component: React.FC<Props> = ({ className, book }) => (
+  <div className={classnames(className)}>
+    <div className={classnames("relative")}>
+      <CoverArt
+        src={book?.primaryEdition?.coverUrl}
+        className={classnames("self-center")}
+      >
+        <Link href={"/book/[id]"} as={`/book/${book.id}`}>
+          <a className={classnames("absolute", "inset-0", "z-20")} />
+        </Link>
+      </CoverArt>
+      <p
+        className={classnames(
+          "mt-1",
+          "text-black",
+          "text-xs",
+          "truncate",
+          "select-all"
+        )}
+      >
+        {book.title}
+      </p>
     </div>
-  )
-}
+  </div>
+)
 
 export const Container: React.FC<ContainerProps> = props => {
   return <Component {...props} />

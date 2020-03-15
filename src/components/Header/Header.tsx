@@ -16,9 +16,12 @@ export type ContainerProps = {
 }
 export type Props = {
   search: SearchBoxContainerProps["search"]
+  i18n: {
+    placeholder: string
+  }
 } & ContainerProps
 
-const Component: React.FC<Props> = ({ className, search }) => (
+const Component: React.FC<Props> = ({ className, search, i18n }) => (
   <header
     className={classnames(
       className,
@@ -40,11 +43,7 @@ const Component: React.FC<Props> = ({ className, search }) => (
         "items-center"
       )}
     >
-      <SearchBox
-        className={classnames("w-1/3")}
-        placeholder={"header.searchbox-placeholder"}
-        search={search}
-      />
+      <SearchBox className={classnames("w-1/3")} search={search} i18n={i18n} />
     </div>
   </header>
 )
@@ -121,7 +120,13 @@ const Header: React.FC<ContainerProps> = props => {
       columns: [authorsBox, bookBox, seriesBox].filter(Boolean),
     }
   }
-  return <Component {...props} search={search} />
+  return (
+    <Component
+      {...props}
+      search={search}
+      i18n={{ placeholder: t("header.searchbox-placeholder") }}
+    />
+  )
 }
 
 export default Header

@@ -3,35 +3,45 @@ import Link from "next/link"
 import React from "react"
 import { useTranslation } from "react-i18next"
 
-import * as QueryType from "~/codegen/queries"
+import { ContainerProps as SeriesListContainerProps } from "./SeriesList"
 
 export type ContainerProps = {
   className?: string
-  connections: QueryType.GetBookQuery["book"]["seriesConnections"]
+  connection: SeriesListContainerProps["connections"][number]
 }
-export type Props = {} & ContainerProps
+export type Props = {
+  i18n: { volume: string }
+} & ContainerProps
 
-export const Component: React.FC<Props> = ({ className, connections }) => {
+export const Component: React.FC<Props> = ({
+  className,
+  connection: { series },
+  i18n,
+}) => (
+  <div className={classnames(className, "inline-block")}>
+    <p key={series.id} className={classnames("align-bottom")}>
+      <Link href="/series/[id]" as={`/series/${series.id}`}>
+        <a className={classnames("ml-1", "text-black", "text-lg")}>
+          {series.title} {i18n.volume}
+        </a>
+      </Link>
+    </p>
+  </div>
+)
+
+const Container: React.FC<ContainerProps> = props => {
   const { t } = useTranslation()
+
   return (
-    <div className={classnames(className)}>
-      <span className={classnames("text-gray-600", "text-sm", "select-none")}>
-        {t("common:series")}
-      </span>
-      <div className={classnames("inline-block")}>
-        {connections.map(({ series: { id: seriesId, title }, volume }) => (
-          <p key={seriesId} className={classnames("align-bottom")}>
-            <Link href="/series/[id]" as={`/series/${seriesId}`}>
-              <a className={classnames("ml-1", "text-black", "text-lg")}>
-                {title} {t("common:volume", { context: "series", volume })}
-              </a>
-            </Link>
-          </p>
-        ))}
-      </div>
-    </div>
+    <Component
+      {...props}
+      i18n={{
+        volume: t("common:volume", {
+          context: "series",
+          volume: props.connection.volume,
+        }),
+      }}
+    />
   )
 }
-
-const Container: React.FC<ContainerProps> = props => <Component {...props} />
 export default Container
