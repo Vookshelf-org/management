@@ -66,11 +66,7 @@ const Component: React.FC<Props> = ({
             "rounded-md"
           )}
         >
-          {columns.length === 0 && (
-            <Column>
-              <p>{i18n.noResult}</p>
-            </Column>
-          )}
+          {columns.length === 0 && <Column>{i18n.noResult}</Column>}
           <>{columns}</>
         </ul>
       )}

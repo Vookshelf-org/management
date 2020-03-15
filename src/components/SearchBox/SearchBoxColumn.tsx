@@ -19,7 +19,7 @@ const Component: React.FC<Props> = ({ className, children, link }) => (
       "hover:bg-gray-200"
     )}
   >
-    {children}
+    <p className={classnames("whitespace-no-wrap")}>{children}</p>
     {link && (
       <Link {...link}>
         <a
