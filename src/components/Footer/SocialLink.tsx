@@ -16,8 +16,8 @@ export const Component: React.FC<Props> = ({ className, icon, href }) => (
   </a>
 )
 
-const Container: React.FC<ContainerProps> = props => {
+const SocialLink: React.FC<ContainerProps> = props => {
   return <Component {...props} />
 }
 
-export default Container
+export default SocialLink

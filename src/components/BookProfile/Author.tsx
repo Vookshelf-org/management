@@ -3,7 +3,7 @@ import Link from "next/link"
 import React from "react"
 import { useTranslation } from "react-i18next"
 
-import { ContainerProps as AuthorsContainerProps } from "./Authors"
+import { ContainerProps as AuthorsContainerProps } from "./AuthorsList"
 
 export type ContainerProps = {
   className?: string
@@ -32,7 +32,7 @@ export const Component: React.FC<Props> = ({
   </span>
 )
 
-const Container: React.FC<ContainerProps> = props => {
+const Author: React.FC<ContainerProps> = props => {
   const { t } = useTranslation()
   return (
     <Component
@@ -45,4 +45,4 @@ const Container: React.FC<ContainerProps> = props => {
     />
   )
 }
-export default Container
+export default Author

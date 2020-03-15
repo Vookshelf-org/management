@@ -37,8 +37,8 @@ export const Component: React.FC<Props> = ({ className, book }) => (
   </div>
 )
 
-export const Container: React.FC<ContainerProps> = props => {
+export const Book: React.FC<ContainerProps> = props => {
   return <Component {...props} />
 }
 
-export default Container
+export default Book

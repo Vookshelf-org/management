@@ -43,7 +43,7 @@ export const Component: React.FC<Props> = ({ className, i18n, links }) => (
   </footer>
 )
 
-const Container: React.FC<ContainerProps> = props => {
+const Footer: React.FC<ContainerProps> = props => {
   const { t } = useTranslation()
 
   const links: Props["links"] = [
@@ -67,4 +67,4 @@ const Container: React.FC<ContainerProps> = props => {
     />
   )
 }
-export default Container
+export default Footer

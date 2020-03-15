@@ -45,7 +45,7 @@ export const Component: React.FC<Props> = ({ className, series }) => (
   </div>
 )
 
-const Container: React.FC<ContainerProps> = props => {
+const SeriesProfile: React.FC<ContainerProps> = props => {
   return <Component {...props} />
 }
-export default Container
+export default SeriesProfile

@@ -29,7 +29,7 @@ export const Component: React.FC<Props> = ({
   </div>
 )
 
-const Container: React.FC<ContainerProps> = props => {
+const Series: React.FC<ContainerProps> = props => {
   const { t } = useTranslation()
 
   return (
@@ -44,4 +44,4 @@ const Container: React.FC<ContainerProps> = props => {
     />
   )
 }
-export default Container
+export default Series

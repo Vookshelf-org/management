@@ -1,7 +1,7 @@
 import classnames from "classnames"
 import React from "react"
 
-import Authors from "./Authors"
+import Authors from "./AuthorsList"
 import Series from "./SeriesList"
 
 import * as QueryType from "~/codegen/queries"
@@ -43,5 +43,7 @@ export const Component: React.FC<Props> = ({ className, book }) => (
   </div>
 )
 
-const Container: React.FC<ContainerProps> = props => <Component {...props} />
-export default Container
+const BookContainer: React.FC<ContainerProps> = props => {
+  return <Component {...props} />
+}
+export default BookContainer

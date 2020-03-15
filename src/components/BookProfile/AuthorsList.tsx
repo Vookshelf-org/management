@@ -19,7 +19,7 @@ export const Component: React.FC<Props> = ({ className, connections }) => (
   </div>
 )
 
-const Container: React.FC<ContainerProps> = props => {
+const AuthorsList: React.FC<ContainerProps> = props => {
   return <Component {...props} />
 }
-export default Container
+export default AuthorsList
