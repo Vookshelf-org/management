@@ -54,7 +54,7 @@
     "@arkweid/lefthook": "^0.7.1",
     "@babel/core": "^7.8.4",
     "@graphql-codegen/cli": "^1.12.2",
-    "@graphql-codegen/fragment-matcher": "^1.12.2",
+    "@graphql-codegen/fragment-matcher": "^2.0.0",
     "@graphql-codegen/typescript": "^1.12.2",
     "@graphql-codegen/typescript-operations": "^1.12.2",
     "@storybook/addon-actions": "^5.3.13",
